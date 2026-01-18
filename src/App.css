@@ -1,42 +1,259 @@
+:root {
+  --bg-color: #F9F7F2; /* Creamy White */
+  --card-bg: #FFFFFF;
+  --primary-color: #E6A4B4; /* Soft Sakura Pink */
+  --secondary-color: #F3D7CA; /* Peachy Beige */
+  --text-color: #5D5C61; /* Soft Dark Grey */
+  --accent-color: #98BD9D; /* Matcha Green */
+  --font-main: 'Helvetica Neue', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: radial-gradient(#F3D7CA 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: var(--text-color);
+  font-family: var(--font-main);
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  background-color: var(--card-bg);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(181, 165, 165, 0.15);
+  position: relative;
+  overflow: hidden;
+  z-index: 10; /* Ensure it's above the background sakura */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Intro Screen */
+.intro h1 {
+  font-size: 2.2rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-weight: 300;
+  letter-spacing: -0.5px;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
+.intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
   color: #888;
+}
+
+.start-btn, .option-btn, .retry-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.start-btn:hover, .retry-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(230, 164, 180, 0.4);
+}
+
+/* Question Screen */
+.progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background-color: #eee;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.question-text {
+  font-size: 1.4rem;
+  margin-bottom: 40px;
+  font-weight: 500;
+  word-break: keep-all;
+  line-height: 1.4;
+}
+
+.option-btn {
+  background-color: white;
+  color: var(--text-color);
+  border: 1px solid #eee;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  text-align: left;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+.option-btn:hover {
+  background-color: var(--bg-color);
+  border-color: var(--secondary-color);
+  color: var(--text-color);
+  transform: translateY(-2px);
+}
+
+/* Result Screen */
+.result h2 {
+  font-size: 1.2rem;
+  color: #888;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.result-name {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.result-desc {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  color: #666;
+  word-break: keep-all;
+}
+
+.match-box {
+  background-color: var(--bg-color);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.match-box h3 {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  color: #888;
+}
+
+.match-box p {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Decorative Elements */
+.sakura-decoration {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 4rem;
+  opacity: 0.1;
+  color: var(--primary-color);
+  pointer-events: none;
+}
+
+/* Sakura Rain Animation */
+.sakura-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.sakura {
+  position: absolute;
+  top: -20px;
+  font-size: 1.5rem;
+  color: #FFD1DC;
+  opacity: 0.7;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg) translateX(0px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg) translateX(20px);
+    opacity: 0;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  #root {
+    padding: 1rem;
+  }
+  
+  .container {
+    padding: 30px 20px;
+    width: 100%;
+  }
+
+  .intro h1 {
+    font-size: 1.8rem;
+  }
+
+  .question-text {
+    font-size: 1.2rem;
+  }
+  
+  .sakura {
+    font-size: 1.2rem; /* Smaller sakura on mobile */
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    /* More spacious feel on large screens */
+    background-size: 30px 30px;
+  }
 }
