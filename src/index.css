@@ -1,17 +1,8 @@
 @font-face {
-    font-family: 'GMarketSans';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
-    font-weight: 300;
-}
-@font-face {
-    font-family: 'GMarketSans';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: 500;
-}
-@font-face {
-    font-family: 'GMarketSans';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
-    font-weight: 700;
+    font-family: 'KyoboHandwriting2019';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* Reset or minimal global styles if needed. 
@@ -20,5 +11,5 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'GMarketSans', sans-serif;
+  font-family: 'KyoboHandwriting2019', sans-serif;
 }
