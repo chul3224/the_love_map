@@ -17,6 +17,9 @@ function Navbar() {
       <NavLink to="/about" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
         소개
       </NavLink>
+      <NavLink to="/guestbook" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+        방명록
+      </NavLink>
     </nav>
   );
 }

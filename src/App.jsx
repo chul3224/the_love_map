@@ -6,6 +6,7 @@ import Articles from './pages/Articles';
 import Article from './pages/Article';
 import About from './pages/About';
 import IntroAnimation from './pages/IntroAnimation';
+import Guestbook from './pages/Guestbook'; // Import Guestbook component
 import SakuraRain from './components/SakuraRain';
 import Navbar from './components/Navbar';
 import './App.css';
@@ -34,6 +35,7 @@ function App() {
           <Route path="/articles" element={<Articles />} />
           <Route path="/article/:slug" element={<Article />} />
           <Route path="/about" element={<About />} />
+          <Route path="/guestbook" element={<Guestbook />} /> {/* Add Guestbook Route */}
         </Route>
       </Routes>
     </div>

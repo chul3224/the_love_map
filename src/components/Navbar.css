@@ -20,6 +20,7 @@
   padding: 10px 20px;
   border-radius: 50px;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
